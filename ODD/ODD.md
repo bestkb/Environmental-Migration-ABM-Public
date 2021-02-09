@@ -2,9 +2,9 @@
 title: "Agent-Based Model of Environmental Migration in Bangladesh"
 author: "Kelsea Best"
 output: 
-  #- html_document
+  - html_document
   #- word_document
-  - pdf_document
+  #- pdf_document
 ---
 # Overview
 
@@ -50,7 +50,7 @@ each time step. To represent social networks, agents will be able to
 exchange information about migration histories and wealth histories
 freely with a random set of other households.
 
-![UML diagram of the model structure](../assets/images/class_diagram.png)
+![UML diagram of the model structure](uml_structure.png)
 
 ### Global variables
 
@@ -164,7 +164,7 @@ The number of ticks will increase by 1 at each step, and each individual
 will age by one year. Data will be collected at each tick and stored in
 data\_set.
 
-![Sequence of actions](../assets/images/schedule.png)
+![Sequence of actions](scheduling.png)
 
 # Design concepts
 
@@ -187,11 +187,6 @@ and drought-induced crop failure in rural Bangladesh (Gray & Mueller,
     to migrate, suggesting that a barrier exists to migrating for more
     vulnerable households.
 
--   Wealthier households are more likely to migrate.
-
-The decision-making elements of the model are based on behavioral
-theories including Theory of Planned Behavior, Protection Motivation
-Theory, and Motivation Potential.
 
 ### Emergence
 
@@ -216,54 +211,41 @@ is, of course, another adaptation that households can make.
 ### Objectives
 
 Agents evaluate an objective based on the decision-making method to
-maximize utility, minimize risk, or a combination.
+maximize utility.
 
 ### Learning
 
-Agents will learn both from their own experiences as well as the
-experiences of agents in their network.
+NA
 
 ### Prediction
 
-Agents do not make predictions about the future, but they may consider
-risks associated with a decision based on own histories or histories of
-other agents in their network.
+NA
 
 ### Sensing 
 
 Agents are able to sense all of their own traits and the traits in their
-current community. They are also able to assess migration histories of
-agents in their social network.
+current community. 
 
 ### Interaction
 
-Households interact by sharing information about their migration
-histories and wealth histories with other households within their
-network. Household agents can give and receive information within their
-network and make decisions based on this information. Households can
-also transfer resources in the form of remittances across their
-networks.
+Households interact by sharing information about their wealth and hiring.
+Households may hire individuals or be employed by each other through interactions in 
+the double-blind labor market. 
 
 ### Stochasticity
 
 Stochasticity may be included in the initialization of the model in
-terms of agent traits and social network connects. Stochasticity is also
+terms of agent traits. Stochasticity is also
 present in the implementation of environmental shock risk at each step.
-Stochasticity will be incorporated to determine whether or not a
-migration trip was successful, based on a probability of failure.
 
 ### Collectives
-
-Households connected by social networks can share information about
-their migration experiences with one-another. They can also share
-resources.
+NA
 
 ### Observation
 
 The model records all household migration histories, histories of
 environmental impact, and tracks wealth over time. On the larger level,
-the model will also track populations in origin and destination
-communities over time, total migrations, and the evolution of wealth in
+the model will also track total migrations and the evolution of wealth in
 the community.
 
 # Details
@@ -272,9 +254,11 @@ the community.
 
 Currently, the model is initialized with a number of ticks for the model
 to run, number of individual agents, number of household agents, a
-decision method to be used, and a migration utility. Agent (household
+decision method to be used, a migration utility, a migration threshold,
+a scale of community environmental impact, an agricultural factor, and the 
+number of non-agricultural jobs available initially in the community. Agent (household
 and individual) traits can be randomly initialized based on a
-parameterization from BEMS data.
+parameterization from existing data.
 
 ## Input data
 
